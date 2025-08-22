@@ -1,0 +1,16 @@
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\AIT_Calculator.exe
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\AIT_Calculator.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\AIT_Calculator.deps.json
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\AIT_Calculator.runtimeconfig.json
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\AIT_Calculator.pdb
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\EPPlus.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\EPPlus.Interfaces.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.Configuration.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.Configuration.FileExtensions.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.Configuration.Json.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.FileProviders.Physical.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.FileSystemGlobbing.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.Extensions.Primitives.dll
+F:\Projects\GitHub\Acceleration_into_trajectory_calculator\src\AIT_Calculator\AIT_Calculator\bin\Release\net9.0-windows\app.publish\Microsoft.IO.RecyclableMemoryStream.dll

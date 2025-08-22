@@ -1,0 +1,638 @@
+﻿<UserControl x:Class="AIT_Calculator.Views.Setable.InitialConditionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AIT_Calculator.Views.Setable"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="0" Source="\Resources\Test.png" />
+        <Image Grid.Column="0" Grid.Row="1" Source="\Resources\Test.png" />
+
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Заголовок с описанием -->
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="l - длина штанги с датчиками ускорений"
+                   Margin="0,0,0,4"/>
+
+                    <!-- Блок ввода -->
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Основное поле ввода -->
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding LText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput"
+                     PreviewKeyDown="TextBox_PreviewKeyDown"
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <!-- Компактный блок с размерностью -->
+                        <Border Grid.Column="1" 
+                    Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(м)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+            <!-- h - ширина автомобиля (м) -->
+            <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="h - ширина автомобиля"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding HText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown" 
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(м)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- a - задний установочный размер (м) -->
+            <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="a - задний установочный размер"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding AText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown" 
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(м)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- y - угол наезда (градусы) -->
+            <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="y - угол наезда"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding YText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown" 
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(градусы)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- b - передний установочный размер (м) -->
+            <Border Grid.Column="2" Grid.Row="0" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="b - передний установочный размер"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding BText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown" 
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(м)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- v - начальная скорость (км/ч) -->
+            <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="v - начальная скорость"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource ValidatedTextBoxStyle}"
+                     Text="{Binding VText, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     PreviewTextInput="TextBox_PreviewTextInput" 
+                     PreviewKeyDown="TextBox_PreviewKeyDown" 
+                     TextChanged="TextBox_TextChanged"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(км/ч)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Угол альфа -->
+            <Border Grid.Column="0" Grid.Row="3" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="Угол альфа"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource CustomTextBoxStyle}"
+                     IsReadOnly="True"
+                     Text="{Binding AlfaStart, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(градусы)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Угол бетта -->
+            <Border Grid.Column="0" Grid.Row="4" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="Угол бетта"
+                   Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="1" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0" 
+                     Style="{StaticResource CustomTextBoxStyle}"
+                     IsReadOnly="True"
+                     Text="{Binding BettaStart, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,0,4,0"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                            <TextBlock Text="(градусы)" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Проекции начальной скорости датчиков ускорений -->
+            <Border Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.ColumnSpan="2" Grid.Row="0"
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="Проекции начальной скорости датчиков ускорений"
+                   Margin="0,0,0,4"/>
+
+                    <!-- VX1 начальное -->
+                    <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomBorderStyle}" Margin="0,0,2,4">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="VX1 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding VX1Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м/с)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- VX2 начальное -->
+                    <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="0,0,2,0">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="VX2 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding VX2Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м/с)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- VY1 начальное -->
+                    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource CustomBorderStyle}" Margin="2,0,0,4">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="VY1 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding VY1Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м/с)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- VY2 начальное -->
+                    <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="2,0,0,0">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="VY2 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding VY2Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м/с)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Начальные координаты датчиков ускорений -->
+            <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource CustomBorderStyle}">
+                <Grid Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.ColumnSpan="2" Grid.Row="0"
+                   Style="{StaticResource CustomTextBlockStyle}"
+                   Text="Начальные координаты датчиков ускорений"
+                   Margin="0,0,0,4"/>
+
+                    <!-- X1 начальное -->
+                    <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomBorderStyle}" Margin="0,0,2,4">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="X1 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding X1Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- X2 начальное -->
+                    <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="0,0,2,0">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="X2 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding X2Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- Y1 начальное -->
+                    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource CustomBorderStyle}" Margin="2,0,0,4">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="Y1 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding Y1Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- Y2 начальное -->
+                    <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="2,0,0,0">
+                        <Grid VerticalAlignment="Stretch" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" 
+                           Style="{StaticResource CustomTextBlockStyle}"
+                           Text="Y2 начальное"
+                           Margin="0,0,0,4"/>
+
+                            <Grid Grid.Row="1" Margin="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" 
+                             Style="{StaticResource CustomTextBoxStyle}"
+                             Text="{Binding Y2Start, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,4,0"
+                             VerticalAlignment="Center"/>
+
+                                <Border Grid.Column="1" Style="{StaticResource CompactDimensionStyle}">
+                                    <TextBlock Text="(м)" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

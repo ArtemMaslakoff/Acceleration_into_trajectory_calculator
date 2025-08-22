@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="AIT_Calculator.Views.Visualizations.AnimationPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AIT_Calculator.Views.Visualizations"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" 
+                Style="{StaticResource CustomBorderStyle}"
+                Margin="0,0,0,8">
+            <TextBlock Text="Анимация движения автомобиля" 
+                       Style="{StaticResource CustomTextBlockStyle}"
+                       FontSize="18"
+                       FontWeight="Bold"/>
+        </Border>
+
+        <!-- Основное содержимое -->
+        <Border Grid.Row="1" 
+                Style="{StaticResource CustomBorderStyle}">
+            <Grid>
+                <Canvas x:Name="MainCanvas"
+        Background="White"
+        SizeChanged="MainCanvas_SizeChanged"
+        ClipToBounds="True"
+        SnapsToDevicePixels="True"/>
+
+                <!-- Информация о кадре -->
+                <Border HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="10"
+                        Style="{StaticResource CustomBorderStyle}"
+                        Background="{StaticResource LightBrush}"
+                        Padding="8">
+                    <StackPanel>
+                        <TextBlock Text="Текущий кадр:" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock x:Name="FrameInfoText" 
+                                   Text="Кадр: 0" 
+                                   Style="{StaticResource CustomTextBlockStyle}"
+                                   FontSize="14"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="Время: 0.00 сек" 
+                                   x:Name="TimeInfoText"
+                                   Style="{StaticResource CustomTextBlockStyle}"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Слайдер прогресса -->
+        <Border Grid.Row="2"
+                Style="{StaticResource CustomBorderStyle}"
+                Margin="0,8,0,0"
+                Padding="8">
+            <Grid>
+                <Slider x:Name="ProgressSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        ValueChanged="ProgressSlider_ValueChanged"
+                        IsEnabled="False"
+                        Margin="10,0"/>
+                <TextBlock Text="Прогресс анимации"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,-18,0,0"
+                           Background="{StaticResource LightBrush}"
+                           Padding="4,0"/>
+            </Grid>
+        </Border>
+
+        <!-- Панель управления -->
+        <Border Grid.Row="3" 
+                Style="{StaticResource CustomBorderStyle}"
+                Margin="0,8,0,0"
+                Padding="8">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                <Button x:Name="BtnStart" 
+                        Content="Старт" 
+                        Style="{StaticResource CustomButtonStyle}"
+                        Width="100"
+                        Click="BtnStart_Click"/>
+
+                <Button x:Name="BtnStop" 
+                        Content="Стоп" 
+                        Style="{StaticResource CustomButtonStyle}"
+                        Width="100"
+                        Margin="8,0"
+                        Click="BtnStop_Click"/>
+
+                <Button x:Name="BtnReset" 
+                        Content="Сброс" 
+                        Style="{StaticResource CustomButtonStyle}"
+                        Width="100"
+                        Click="BtnReset_Click"/>
+
+                <Button x:Name="BtnExport" 
+                        Content="Экспорт" 
+                        Style="{StaticResource CustomButtonStyle}"
+                        Width="100"
+                        Margin="8,0,0,0"
+                        Click="BtnExport_Click"/>
+
+                <Button x:Name="BtnToggleTrajectory"
+                        Content="Скрыть траекторию"
+                        Style="{StaticResource CustomButtonStyle}"
+                        Width="150"
+                        Margin="8,0"
+                        Click="BtnToggleTrajectory_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
